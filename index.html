@@ -4,7 +4,19 @@
 
   <title>hello react</title>
 </head>
-<body>
-
-</body>
+  <body>
+    <span id="count">Total clicks: 0</span>
+    <button id="btn">Click me</button>
+  </body>
+  <script>
+    const btn = document.getElementById('btn');
+    const span = document.getElementById('count');
+    let counter = 0;
+    function handleClick(){
+      console.log('i have been clicked');
+      counter += 1;
+      span.innerHTML = `Total clicks: ${counter}`
+    }
+    btn.addEventListener('click', handleClick);
+  </script>
 </html>
