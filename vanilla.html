@@ -17,16 +17,10 @@
     ReactDOM.render(<App />, root);
   }
 
-  const countUp = () => {
-    console.log('countUp in'); counter++;
-
-  }
-
   const App = () => {
 
-    const [counter, setCount] = React.useState(0);
-    console.log(data);
-
+    const [counter, setCounter] = React.useState(0);
+    const countUp = () => {setCounter(counter + 1)}
     return (
       <div>
         <h3>Total clicks: {counter}</h3>
@@ -35,7 +29,6 @@
     )
   }
 
-
-
+  render();
 </script>
 </html>
