@@ -19,12 +19,18 @@
 
   const App = () => {
 
-    const [counter, setCounter] = React.useState(0);
-    const countUp = () => { setCounter( cur => cur + 1) }
+    const [minutes, setMinutes] = React.useState()
+    const onChange = (e) => {
+      console.log('sombody wrote.', e.target.value);
+      setMinutes(e.target.value)
+    }
     return (
       <div>
-        <h3>Total clicks: {counter}</h3>
-        <button onClick={countUp}>Click me</button>
+        <h1>Super Converter</h1>
+        <label htmlFor="minutes">Minutes</label>
+        <input id="minutes" value={minutes} placeholder="minutes" type="number" onChange={onChange}/>
+        <label htmlFor="hours">Hours</label>
+        <input id="hours" placeholder="Hours" type="number" />
       </div>
     )
   }
