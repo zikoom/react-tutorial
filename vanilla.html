@@ -24,13 +24,19 @@
       console.log('sombody wrote.', e.target.value);
       setMinutes(e.target.value)
     }
+
+    const resetMinutes = () => setMinutes(0)
+
     return (
       <div>
-        <h1>Super Converter</h1>
-        <label htmlFor="minutes">Minutes</label>
-        <input id="minutes" value={minutes} placeholder="minutes" type="number" onChange={onChange}/>
-        <label htmlFor="hours">Hours</label>
-        <input id="hours" placeholder="Hours" type="number" />
+        <div>
+          <h1>Super Converter</h1>
+          <label htmlFor="minutes">Minutes</label>
+          <input id="minutes" value={minutes} placeholder="minutes" type="number" onChange={onChange}/>
+          <label htmlFor="hours">Hours</label>
+          <input id="hours" value={Math.round(minutes / 60)} placeholder="Hours" type="number" />
+        </div>
+        <button onClick={resetMinutes}>reset</button>
       </div>
     )
   }
