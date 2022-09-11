@@ -1,30 +1,21 @@
 import { useState, useEffect } from "react"
 
 function App() {
-  
-
-  const [clicked, setClicked] = useState(0);
-  const [keyword, setKeyword] = useState('');
-
-  const onClick = () => {
-    console.log('clicked');
-    setClicked((cur) => cur + 1);
+  const [showing, setShowing] = useState(false);
+  const changeShowState = () => setShowing((cur) => !cur)
+  const Hello = () => {
+    useEffect(() => {
+      console.log('im created');
+      return () => console.log('im destroyed');
+    }, []);
+    return (
+      <div><h1>Hello world!</h1></div>
+    )
   }
-
-  const onChangeKeyword = (e) => {setKeyword(e.target.value)}
-
-  console.log('app lendered');
-  const runOnce = () => {
-    console.log('run once');
-  }
-  useEffect(runOnce, []);
-  useEffect(() => {console.log('do search')}, [keyword]);
   return (
     <div>
-      <h1>H!</h1>
-      <input type="text" placeholder="Search" value={keyword} onChange={onChangeKeyword}/>
-      <button onClick={onClick}> click me</button>
-      <span>clicked: {clicked}</span>
+      <button onClick={changeShowState}> {showing ? 'hide' : 'show'}</button>
+      {showing ? <Hello /> : null}
     </div>
   );
 }
