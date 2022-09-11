@@ -27,6 +27,29 @@
 
   const App = () => {
 
+    const saveBtnCss ={
+      backgroundColor: 'tomato',
+    }
+    const continueBtnCss ={
+      backgroundColor: 'cyan',
+    }
+
+    const Btn = ({text, style}) => {
+      return <button style={style}>{text}</button>
+    }
+
+    
+   
+    return (
+      <div>
+         <Btn text="Save Changes" style={saveBtnCss}/>
+         <Btn text="Continue" style={continueBtnCss}/>
+      </div>
+    )
+  }
+
+  function Converter(){
+
     const [minutes, setMinutes] = React.useState();
     const [fliped, setFliped] = React.useState(false);
     const onChangeMinutes = (e) => {
@@ -42,7 +65,6 @@
     return (
       <div>
         <div>
-          <h1>Super Converter</h1>
           <label htmlFor="minutes">Minutes</label>
           <input id="minutes" value={minutes} placeholder="minutes" type="number" onChange={onChangeMinutes} disabled={fliped} />
           <label htmlFor="hours">Hours</label>
@@ -50,6 +72,14 @@
         </div>
         <button onClick={resetMinutes}>reset</button>
         <button onClick={onFlip}>flip</button>
+      </div>
+    )
+  }
+
+  function KmToMIles(){
+    return (
+      <div>
+
       </div>
     )
   }
