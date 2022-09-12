@@ -1,7 +1,19 @@
+import {
+  // BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom"
 
+import Home from './routes/Home'
+import Detail from './routes/Detail'
 
 function App() {
-  return null
+  return (
+    <Routes>
+      <Route path="/" element={ <Home />} />
+      <Route path="/detail" element={ <Detail />} />
+    </Routes>
+  )
 }
 
 export default App;
