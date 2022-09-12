@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 import Movie from "../component/Movie.js"
 
 function Home(){
@@ -22,6 +23,7 @@ function Home(){
         {
           movies.map((movie) => <Movie key={movie.id} movie={movie} />)
         }
+        
       </div>
     )
   }
@@ -29,7 +31,9 @@ function Home(){
 
   return (
     <div>
+      <h1>Home</h1>
       {loading ? <h1>Loading... </h1> : <Movies />}
+      <Outlet />
     </div>
   );
 }
